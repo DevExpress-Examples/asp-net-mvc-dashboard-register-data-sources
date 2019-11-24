@@ -1,7 +1,7 @@
 *Files to look at*:
 
-* [Default.aspx.cs](./CS/MvcDashboardDataSources/App_Start/DashboardConfig.cs)
-* [Default.aspx.vb](./VB/MvcDashboardDataSources/App_Start/DashboardConfig.vb)
+* [DashboardConfig.cs](./CS/MvcDashboardDataSources/App_Start/DashboardConfig.cs)
+* [DashboardConfig.vb](./VB/MvcDashboardDataSources/App_Start/DashboardConfig.vb)
 
 ## How to Register Data Sources for ASP.NET MVC Dashboard Control
 
