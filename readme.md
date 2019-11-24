@@ -3,7 +3,7 @@
 * [DashboardConfig.cs](./CS/MvcDashboardDataSources/App_Start/DashboardConfig.cs)
 * [DashboardConfig.vb](./VB/MvcDashboardDataSources/App_Start/DashboardConfig.vb)
 
-## How to Register Data Sources for ASP.NET MVC Dashboard Control
+## How to Register Data Sources for ASP.NET MVC Dashboard Extension
 
 The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
 
