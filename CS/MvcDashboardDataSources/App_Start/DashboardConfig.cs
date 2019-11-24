@@ -67,7 +67,7 @@ namespace MvcDashboardDataSources {
 
             // Registers an OLAP data source.
             DashboardOlapDataSource olapDataSource = new DashboardOlapDataSource("OLAP Data Source", "olapConnection");
-            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Xmla;
+            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Adomd;
             dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
 
             // Registers an Entity Framework data source.
