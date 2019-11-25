@@ -8,6 +8,7 @@ using DevExpress.DashboardCommon;
 using DevExpress.DataAccess.EntityFramework;
 using DevExpress.DataAccess.Json;
 using System;
+using System.Web;
 using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.Security.Resources;
 
@@ -27,13 +28,29 @@ namespace MvcDashboardDataSources {
             DashboardConfigurator.Default.ConfigureDataConnection += Default_ConfigureDataConnection;
         }
 
-        private static void Default_ConfigureDataConnection(object sender, ConfigureDataConnectionWebEventArgs e)
-        {
-            if (e.ConnectionName == "olapConnection") {
-                OlapConnectionParameters olapParams = new OlapConnectionParameters();
-                olapParams.ConnectionString = "Provider=MSOLAP;Data Source=http://demos.devexpress.com/Services/OLAP/msmdpump.dll;"
-                    + "Initial catalog=Adventure Works DW Standard Edition;Cube name=Adventure Works;Query Timeout=100;";
-                e.ConnectionParameters = olapParams;
+        private static void Default_ConfigureDataConnection(object sender, ConfigureDataConnectionWebEventArgs e) {
+            switch(e.ConnectionName) {
+                case "olapConnection":
+                    OlapConnectionParameters olapParams = new OlapConnectionParameters();
+                    olapParams.ConnectionString = "Provider=MSOLAP;Data Source=http://demos.devexpress.com/Services/OLAP/msmdpump.dll;"
+                        + "Initial catalog=Adventure Works DW Standard Edition;Cube name=Adventure Works;Query Timeout=100;";
+                    e.ConnectionParameters = olapParams;
+                break;
+                case "jsonConnection":
+                    Uri fileUri = new Uri(HostingEnvironment.MapPath(@"~/App_Data/customers.json"), UriKind.RelativeOrAbsolute);
+                    JsonSourceConnectionParameters jsonParams = new JsonSourceConnectionParameters();
+                    jsonParams.JsonSource = new UriJsonSource(fileUri);
+                    e.ConnectionParameters = jsonParams;
+                break;
+            }
+            if(e.DataSourceName.Contains("Extract Data Source")) {
+                ExtractDataSourceConnectionParameters extractParams = new ExtractDataSourceConnectionParameters();
+                extractParams.FileName = HostingEnvironment.MapPath(@"~/App_Data/SalesPersonExtract.dat");
+                e.ConnectionParameters = extractParams;
+            }
+            if(e.DataSourceName.Contains("Excel Data Source")) {
+                ExcelDataSourceConnectionParameters excelParams = new ExcelDataSourceConnectionParameters(HostingEnvironment.MapPath(@"~/App_Data/Sales.xlsx"));
+                e.ConnectionParameters = excelParams;
             }
         }
 
@@ -61,24 +78,20 @@ namespace MvcDashboardDataSources {
 
             // Registers an Excel data source.
             DashboardExcelDataSource excelDataSource = new DashboardExcelDataSource("Excel Data Source");
-            excelDataSource.FileName = HostingEnvironment.MapPath(@"~/App_Data/Sales.xlsx");
             excelDataSource.SourceOptions = new ExcelSourceOptions(new ExcelWorksheetSettings("Sheet1"));
             dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml());
 
             // Registers an OLAP data source.
             DashboardOlapDataSource olapDataSource = new DashboardOlapDataSource("OLAP Data Source", "olapConnection");
-            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Adomd;
             dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
 
             // Registers an Entity Framework data source.
-            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");
-            efDataSource.ConnectionParameters = new EFConnectionParameters(typeof(OrderContext));
+            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");            
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml());
 
             // Registers an Extract data source.
             DashboardExtractDataSource extractDataSource = new DashboardExtractDataSource("Extract Data Source");
             extractDataSource.Name = "Extract Data Source";
-            extractDataSource.FileName = @"App_Data/SalesPersonExtract.dat";
             dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml());
 
             // Registers a JSON data source from URL.
@@ -90,8 +103,8 @@ namespace MvcDashboardDataSources {
 
             // Registers a JSON data source from a JSON file.
             DashboardJsonDataSource jsonDataSourceFile = new DashboardJsonDataSource("JSON Data Source (File)");
-            Uri fileUri = new Uri(@"App_Data/customers.json", UriKind.RelativeOrAbsolute);
-            jsonDataSourceFile.JsonSource = new UriJsonSource(fileUri);
+
+            jsonDataSourceFile.ConnectionName = "jsonConnection";
             jsonDataSourceFile.RootElement = "Customers";
             jsonDataSourceFile.Fill();
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml());
@@ -107,9 +120,8 @@ namespace MvcDashboardDataSources {
             // Registers an XPO data source.
             DashboardXpoDataSource xpoDataSource = new DashboardXpoDataSource("XPO Data Source");
             xpoDataSource.ConnectionStringName = "NWindConnectionStringSQLite";
-            xpoDataSource.SetEntityType(typeof(Category));
+            xpoDataSource.SetEntityType(typeof(Category));            
             dataSourceStorage.RegisterDataSource("xpoDataSource", xpoDataSource.SaveToXml());
-
             return dataSourceStorage;
         }
     }

@@ -4,10 +4,12 @@
         control.registerExtension(new DevExpress.Dashboard.DashboardPanelExtension(control, { dashboardThumbnail: "./Content/DashboardThumbnail/{0}.png" }));
     }
 </script>
-@Html.DevExpress().Dashboard(settings => {
-    settings.Name = "Dashboard";
-    settings.Width = Unit.Percentage(100);
-    settings.Height = Unit.Percentage(100);
-    settings.UseNeutralFilterMode = true;
-    settings.ClientSideEvents.BeforeRender = "onBeforeRender";
-}).GetHtml()
+<div style="position: absolute; top: 0; left: 0; bottom: 0; right:0">
+    @Html.DevExpress().Dashboard(settings => {
+        settings.Name = "Dashboard";
+        settings.Width = Unit.Percentage(100);
+        settings.Height = Unit.Percentage(100);
+        settings.UseNeutralFilterMode = true;
+        settings.ClientSideEvents.BeforeRender = "onBeforeRender";
+    }).GetHtml()
+</div>
