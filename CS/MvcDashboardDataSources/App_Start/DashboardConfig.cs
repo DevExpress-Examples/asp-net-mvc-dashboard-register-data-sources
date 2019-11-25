@@ -1,16 +1,13 @@
-using System.Web.Routing;
+using DevExpress.DashboardCommon;
 using DevExpress.DashboardWeb;
 using DevExpress.DashboardWeb.Mvc;
-using DevExpress.DataAccess.Sql;
-using System.Web.Hosting;
-using DevExpress.DataAccess.Excel;
-using DevExpress.DashboardCommon;
-using DevExpress.DataAccess.EntityFramework;
-using DevExpress.DataAccess.Json;
-using System;
-using System.Web;
 using DevExpress.DataAccess.ConnectionParameters;
-using DevExpress.Security.Resources;
+using DevExpress.DataAccess.Excel;
+using DevExpress.DataAccess.Json;
+using DevExpress.DataAccess.Sql;
+using System;
+using System.Web.Hosting;
+using System.Web.Routing;
 
 namespace MvcDashboardDataSources {
     public static class DashboardConfig {
