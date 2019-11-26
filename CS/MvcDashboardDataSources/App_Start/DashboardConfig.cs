@@ -2,6 +2,7 @@ using DevExpress.DashboardCommon;
 using DevExpress.DashboardWeb;
 using DevExpress.DashboardWeb.Mvc;
 using DevExpress.DataAccess.ConnectionParameters;
+using DevExpress.DataAccess.EntityFramework;
 using DevExpress.DataAccess.Excel;
 using DevExpress.DataAccess.Json;
 using DevExpress.DataAccess.Sql;
@@ -52,7 +53,7 @@ namespace MvcDashboardDataSources {
         }
 
         private static void DataLoading(object sender, DataLoadingWebEventArgs e) {
-            if(e.DataSourceName == "Object Data Source") {
+            if(e.DataSourceName.Contains("Object Data Source")) {
                 e.Data = Invoices.CreateData();
             }
         }
@@ -83,7 +84,8 @@ namespace MvcDashboardDataSources {
             dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
 
             // Registers an Entity Framework data source.
-            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");            
+            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");
+            efDataSource.ConnectionParameters = new EFConnectionParameters(typeof(OrderContext));
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml());
 
             // Registers an Extract data source.

@@ -51,7 +51,7 @@ Namespace MvcDashboardDataSources
         End Sub
 
         Private Shared Sub DataLoading(ByVal sender As Object, ByVal e As DataLoadingWebEventArgs)
-            If e.DataSourceName = "Object Data Source" Then
+            If e.DataSourceName.Contains("Object Data Source") Then
                 e.Data = Invoices.CreateData()
             End If
         End Sub
