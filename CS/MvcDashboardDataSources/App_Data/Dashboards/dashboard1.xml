@@ -27,7 +27,7 @@
       <ResultSchema />
     </ExcelDataSource>
     <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" />
-    <EFDataSource Name="EF Core Data Source" Source="MvcDashboardDataSources.OrderContext, MvcDashboardDataSources, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
+    <EFDataSource Name="EF Data Source" Source="MvcDashboardDataSources.OrderContext, MvcDashboardDataSources, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
     <ExtractFileDataSource ComponentName="extractFileDataSource1" Name="Extract Data Source">
       <Parameters />
     </ExtractFileDataSource>
