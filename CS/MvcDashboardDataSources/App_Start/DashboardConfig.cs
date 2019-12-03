@@ -84,7 +84,7 @@ namespace MvcDashboardDataSources {
             dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
 
             // Registers an Entity Framework data source.
-            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");
+            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Data Source");
             efDataSource.ConnectionParameters = new EFConnectionParameters(typeof(OrderContext));
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml());
 
