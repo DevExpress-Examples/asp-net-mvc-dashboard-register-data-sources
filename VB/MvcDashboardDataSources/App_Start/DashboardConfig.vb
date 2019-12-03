@@ -78,7 +78,7 @@ Namespace MvcDashboardDataSources
             dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml())
 
             ' Registers an Entity Framework data source.
-            Dim efDataSource As New DashboardEFDataSource("EF Core Data Source")
+            Dim efDataSource As New DashboardEFDataSource("EF Data Source")
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml())
 
             ' Registers an Extract data source.
