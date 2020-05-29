@@ -65,7 +65,7 @@ namespace MvcDashboardDataSources {
             DashboardSqlDataSource sqlDataSource = new DashboardSqlDataSource("SQL Data Source", "NWindConnectionString");
             SelectQuery query = SelectQueryFluentBuilder
                 .AddTable("SalesPerson")
-                .SelectAllColumns()
+                .SelectAllColumnsFromTable()
                 .Build("Sales Person");
             sqlDataSource.Queries.Add(query);
             dataSourceStorage.RegisterDataSource("sqlDataSource", sqlDataSource.SaveToXml());
