@@ -105,7 +105,6 @@ namespace MvcDashboardDataSources {
 
             jsonDataSourceFile.ConnectionName = "jsonConnection";
             jsonDataSourceFile.RootElement = "Customers";
-            jsonDataSourceFile.Fill();
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml());
 
             // Registers a JSON data source from JSON string.
@@ -113,7 +112,6 @@ namespace MvcDashboardDataSources {
             string json = "{\"Customers\":[{\"Id\":\"ALFKI\",\"CompanyName\":\"Alfreds Futterkiste\",\"ContactName\":\"Maria Anders\",\"ContactTitle\":\"Sales Representative\",\"Address\":\"Obere Str. 57\",\"City\":\"Berlin\",\"PostalCode\":\"12209\",\"Country\":\"Germany\",\"Phone\":\"030-0074321\",\"Fax\":\"030-0076545\"}],\"ResponseStatus\":{}}";
             jsonDataSourceString.JsonSource = new CustomJsonSource(json);
             jsonDataSourceString.RootElement = "Customers";
-            jsonDataSourceString.Fill();
             dataSourceStorage.RegisterDataSource("jsonDataSourceString", jsonDataSourceString.SaveToXml());
 
             // Registers an XPO data source.
