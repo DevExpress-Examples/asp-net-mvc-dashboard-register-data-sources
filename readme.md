@@ -3,7 +3,7 @@
 * [DashboardConfig.cs](./CS/MvcDashboardDataSources/App_Start/DashboardConfig.cs)
 * [DashboardConfig.vb](./VB/MvcDashboardDataSources/App_Start/DashboardConfig.vb)
 
-## How to Register Data Sources for ASP.NET MVC Dashboard Extension
+## Dashboard for MVC - How to Register Data Sources
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/223808621/)**
 <!-- run online end -->
