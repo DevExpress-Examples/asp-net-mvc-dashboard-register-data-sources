@@ -14,7 +14,7 @@ Namespace MvcDashboardDataSources
         Private Sub New()
         End Sub
         Public Shared Sub RegisterService(ByVal routes As RouteCollection)
-            routes.MapDashboardRoute("dashboardControl")
+            routes.MapDashboardRoute("dashboardControl", "DefaultDashboard")
 
             Dim dashboardFileStorage As New DashboardFileStorage("~/App_Data/Dashboards")
             DashboardConfigurator.Default.SetDashboardStorage(dashboardFileStorage)
@@ -98,7 +98,6 @@ Namespace MvcDashboardDataSources
 
             jsonDataSourceFile.ConnectionName = "jsonConnection"
             jsonDataSourceFile.RootElement = "Customers"
-            jsonDataSourceFile.Fill()
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml())
 
             ' Registers a JSON data source from JSON string.
