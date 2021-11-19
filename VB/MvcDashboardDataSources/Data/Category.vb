@@ -1,15 +1,17 @@
-﻿Imports Microsoft.VisualBasic
-Imports System
-Imports DevExpress.Xpo
+﻿Imports DevExpress.Xpo
 
 Namespace MvcDashboardDataSources
-	<Persistent("Categories"), DeferredDeletion(False)> _
+	<Persistent("Categories"), DeferredDeletion(False)>
 	Public Class Category
 		Inherits XPCustomObject
+
+'INSTANT VB NOTE: The field categoryId was renamed since Visual Basic does not allow fields to have the same name as other class members:
 		Private categoryId_Renamed As Integer
+'INSTANT VB NOTE: The field categoryName was renamed since Visual Basic does not allow fields to have the same name as other class members:
 		Private categoryName_Renamed As String
+'INSTANT VB NOTE: The field description was renamed since Visual Basic does not allow fields to have the same name as other class members:
 		Private description_Renamed As String
-		<Key> _
+		<Key>
 		Public Property CategoryID() As Integer
 			Get
 				Return categoryId_Renamed

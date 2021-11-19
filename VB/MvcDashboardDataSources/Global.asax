@@ -1,1 +1,1 @@
-<%@ Application Codebehind="Global.asax.vb" Inherits="MvcDashboardDataSources.MvcApplication" Language="vb" %>
+﻿<%@ Application Codebehind="Global.asax.vb" Inherits="MvcDashboardDataSources.MvcApplication" Language="vb" %>

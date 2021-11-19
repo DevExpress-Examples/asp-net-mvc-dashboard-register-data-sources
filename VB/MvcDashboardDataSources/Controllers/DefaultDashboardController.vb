@@ -1,7 +1,6 @@
-﻿Imports System.Web.Mvc
-Imports DevExpress.DashboardWeb.Mvc
+﻿Imports DevExpress.DashboardWeb.Mvc
 
-Namespace Controllers
+Namespace MvcDashboardDataSources.Controllers
     Public Class DefaultDashboardController
         Inherits DashboardController
 
