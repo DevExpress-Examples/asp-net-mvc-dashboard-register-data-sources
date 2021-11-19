@@ -5,6 +5,9 @@
 <!-- default badges end -->
 
 ## Dashboard for MVC - How to Register Data Sources
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/223808621/)**
+<!-- run online end -->
 
 The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
 
