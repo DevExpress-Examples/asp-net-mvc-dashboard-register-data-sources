@@ -26,7 +26,7 @@ The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Das
 <!-- default file list -->
 ## Files to Look At
 
-* [DashboardConfig.cs](./CS/MvcDashboardDataSources/App_Start/DashboardConfig.cs)(VB: [DashboardConfig.vb](./VB/MvcDashboardDataSources/App_Start/DashboardConfig.vb))
+* [DashboardConfig.cs](./CS/MvcDashboardDataSources/App_Start/DashboardConfig.cs) (VB: [DashboardConfig.vb](./VB/MvcDashboardDataSources/App_Start/DashboardConfig.vb))
 <!-- default file list end -->
 ## See Also
 
