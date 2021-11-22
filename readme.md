@@ -5,33 +5,41 @@
 <!-- default badges end -->
 
 ## Dashboard for MVC - How to Register Data Sources
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/223808621/)**
-<!-- run online end -->
 
-The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
+The following example displays how to supply a Web Dashboard with a set of predefined data sources available for users.
 
 ![](web-dashboard-data-sources.png)
 
-Supported data sources:
+The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage.
 
-- [SQL data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardSqlDataSource/)
-- [OLAP data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardOLAPDataSource/)
-- [Excel data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardExcelDataSource/)
-- [Object data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardObjectDataSource/)
-- [Entity Framework data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardEFDataSource/)
-- [Extract data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardExtractDataSource/)
-- [JSON data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardJsonDataSource/)
-- [XPO data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardXpoDataSource/)
-
-The [DashboardConfigurator.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.SetDataSourceStorage.overloads) method is used to register the added data sources in a data source storage. 
+The [DashboardConfigurator.ConfigureDataConnection](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.DashboardConfigurator.ConfigureDataConnection) event is handled to customize connection parameters before the Web Dashboard connects to a data store (database, OLAP cube, etc.).
 
 <!-- default file list -->
 ## Files to Look At
 
+* [EFDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/EFDataSourceConfigurator.cs) (VB: [EFDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/EFDataSourceConfigurator.vb))
+* [ExcelDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/ExcelDataSourceConfigurator.cs) (VB: [ExcelDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/ExcelDataSourceConfigurator.vb))
+* [ExtractDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/ExtractDataSourceConfigurator.cs) (VB: [ExtractDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/ExtractDataSourceConfigurator.vb))
+* [JsonDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/JsonDataSourceConfigurator.cs) (VB: [JsonDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/JsonDataSourceConfigurator.vb))
+* [ObjectDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/ObjectDataSourceConfigurator.cs) (VB: [ObjectDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/ObjectDataSourceConfigurator.vb))
+* [OlapDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/OlapDataSourceConfigurator.cs) (VB: [OlapDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/OlapDataSourceConfigurator.vb))
+* [SqlDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/SqlDataSourceConfigurator.cs) (VB: [SqlDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/SqlDataSourceConfigurator.vb))
+* [XpoDataSourceConfigurator.cs](./CS/MvcDashboardDataSources/Configuration/XpoDataSourceConfigurator.cs) (VB: [XpoDataSourceConfigurator.vb](./VB/MvcDashboardDataSources/Configuration/XpoDataSourceConfigurator.vb))
 * [DashboardConfig.cs](./CS/MvcDashboardDataSources/App_Start/DashboardConfig.cs) (VB: [DashboardConfig.vb](./VB/MvcDashboardDataSources/App_Start/DashboardConfig.vb))
 <!-- default file list end -->
-## See Also
+
+## Documentation
+
+- [Entity Framework data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardEFDataSource/)
+- [Excel data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardExcelDataSource/)
+- [Extract data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardExtractDataSource/)
+- [JSON data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardJsonDataSource/)
+- [Object data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardObjectDataSource/)
+- [OLAP data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardOLAPDataSource/)
+- [SQL data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardSqlDataSource/)
+- [XPO data source](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardXpoDataSource/)
+
+## More Examples
 
 - [How to Register Data Sources for ASP.NET Web Forms Dashboard Control](https://github.com/DevExpress-Examples/asp-net-web-forms-dashboard-register-data-sources)
 - [How to Register Data Sources for ASP.NET Core Dashboard Control](https://github.com/DevExpress-Examples/asp-net-core-dashboard-register-data-sources)
