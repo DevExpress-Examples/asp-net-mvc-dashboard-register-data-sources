@@ -25,7 +25,7 @@ namespace MvcDashboardDataSources {
 
             DashboardConfigurator.Default.SetDataSourceStorage(dataSourceStorage);
 
-            // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
+            // Allow users to create new data sources based on predefined connection strings.
             DashboardConfigurator.Default.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());            
         }
     }
