@@ -7,11 +7,11 @@ Namespace MvcDashboardDataSources
     Public Module DashboardConfig
         Public Sub RegisterService(ByVal routes As RouteCollection)
             routes.MapDashboardRoute("dashboardControl", "DefaultDashboard")
-            ' Configure Dashboard Storage:
+            ' Configure a dashboard storage:
             Dim dashboardFileStorage As New DashboardFileStorage("~/App_Data/Dashboards")
             DashboardConfigurator.Default.SetDashboardStorage(dashboardFileStorage)
 
-            ' Configure Data Source Storage:
+            ' Configure a data source storage:
             Dim dataSourceStorage As New DataSourceInMemoryStorage()
 
             SqlDataSourceConfigurator.ConfigureDataSource(dataSourceStorage)
@@ -25,7 +25,7 @@ Namespace MvcDashboardDataSources
 
             DashboardConfigurator.Default.SetDataSourceStorage(dataSourceStorage)
 
-            ' Uncomment this string to allow users to create new data sources based on predefined connection strings.
+            ' Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             ' DashboardConfigurator.Default.SetConnectionStringsProvider(New DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider())
         End Sub
     End Module
