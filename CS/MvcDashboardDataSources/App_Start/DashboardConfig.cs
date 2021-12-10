@@ -7,11 +7,11 @@ namespace MvcDashboardDataSources {
     public static class DashboardConfig {
         public static void RegisterService(RouteCollection routes) {
             routes.MapDashboardRoute("dashboardControl", "DefaultDashboard");
-            // Configure Dashboard Storage:
+            // Configure a dashboard storage:
             DashboardFileStorage dashboardFileStorage = new DashboardFileStorage("~/App_Data/Dashboards");
             DashboardConfigurator.Default.SetDashboardStorage(dashboardFileStorage);
 
-            // Configure Data Source Storage:
+            // Configure a data source storage:
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
             
             SqlDataSourceConfigurator.ConfigureDataSource(dataSourceStorage);
@@ -25,7 +25,7 @@ namespace MvcDashboardDataSources {
 
             DashboardConfigurator.Default.SetDataSourceStorage(dataSourceStorage);
 
-            // Uncomment this string to allow users to create new data sources based on predefined connection strings.
+            // Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             // DashboardConfigurator.Default.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());            
         }
     }
